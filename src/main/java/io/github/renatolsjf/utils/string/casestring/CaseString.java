@@ -50,7 +50,7 @@ public class CaseString {
 
     /**
      * Gets a list of Strings containing the parsed String variations for each available CaseType
-     * @return A List<String> with the variations for each available CaseType
+     * @return A List of Strings with the variations for each available CaseType
      */
     public List<String> getMatchingValues() {
         return this.buffers.stream()
