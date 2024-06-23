@@ -157,4 +157,14 @@ class CaseStringTest {
 
     }
 
+    @org.junit.jupiter.api.Test
+    void equalsString() {
+        CaseString cs = CaseString.parse(" This is-_---OneInput_Named-as-a");
+        String s = "this_isOne-input named as_A";
+        String s2 = "AnyString";
+
+        Assertions.assertTrue(cs.equalsString(s));
+        Assertions.assertFalse(cs.equalsString(s2));
+    }
+
 }
