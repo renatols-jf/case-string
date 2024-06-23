@@ -40,7 +40,12 @@ public class CaseString {
     }
 
     /**
-     * Verifies if a given String matches the parsed String irrespective of the case
+     * Verifies if a given String matches any available case. This is a comparison between the given
+     * String directly to the available cases. Basically, it will return true if the given String
+     * is equal to any case representation of the String parsed in this CaseString.
+     * If you wish to compare if a given String will create, after parsed,
+     * cases that are equal to the cases created by this CaseString, use equalsString.
+     * instead.
      * @param s The String to be matched against the parsed String
      * @return A boolean indicating whether a match was found or not
      */
@@ -207,6 +212,51 @@ public class CaseString {
     public static String getValue(CaseType caseType, String s) {
         CaseString cs = parse(s);
         return cs.getValue(caseType);
+    }
+
+    /**
+     * Parses the given String directly to kebab case
+     * @param s A String to be parsed
+     * @return A String in the kebab case
+     */
+    public static String toKebabCase(String s) {
+        return CaseString.parse(s).kebab();
+    }
+
+    /**
+     * Parses the given String directly to snake case
+     * @param s A String to be parsed
+     * @return A String in the snake case
+     */
+    public static String toSnakeCase(String s) {
+        return CaseString.parse(s).snake();
+    }
+
+    /**
+     * Parses the given String directly to camel case
+     * @param s A String to be parsed
+     * @return A String in the camel case
+     */
+    public static String toCamelCase(String s) {
+        return CaseString.parse(s).camel();
+    }
+
+    /**
+     * Parses the given String directly to pascal case
+     * @param s A String to be parsed
+     * @return A String in the pascal case
+     */
+    public static String toPascalCase(String s) {
+        return CaseString.parse(s).pascal();
+    }
+
+    /**
+     * Parses the given String directly to spaced case
+     * @param s A String to be parsed
+     * @return A String in the spaced case
+     */
+    public static String toSpacedCase(String s) {
+        return CaseString.parse(s).spaced();
     }
 
 }
