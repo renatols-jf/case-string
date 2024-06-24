@@ -4,7 +4,7 @@
 This is a simple lib that aims to convert Strings into the following available cases:
 - kebab (this-is-a-kebab-case-string)
 - snake (this_is_a_snake_case_string)
-- camel (thisIsASnakeCaseString)
+- camel (thisIsACamelCaseString)
 - pascal (ThisIsAPascalCaseString)
 - spaced (this is a spaced case string)
 
