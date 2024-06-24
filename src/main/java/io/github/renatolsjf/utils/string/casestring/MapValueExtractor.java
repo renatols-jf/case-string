@@ -23,7 +23,7 @@ class MapValueExtractor<T> extends ValueExtractor<T, Map> {
     public T extractValueOrThrowException(Map source, boolean matchOriginalInput) throws UnavailableKeyException {
 
         List<String> parsedValues =  new ArrayList<>();
-        parsedValues.addAll(this.caseString.getMatchingValues());
+        parsedValues.addAll(this.caseString.getCaseValues());
         if (matchOriginalInput) {
             parsedValues.add(this.caseString.original());
         }

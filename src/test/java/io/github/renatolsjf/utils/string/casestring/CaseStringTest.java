@@ -10,28 +10,28 @@ class CaseStringTest {
 
 
     @org.junit.jupiter.api.Test
-    void matches() {
+    void isCaseRepresentation() {
 
         CaseString cs = CaseString.parse(" This is A random-pieceOf string   MADE----to___bReaK");
-        Assertions.assertTrue(cs.matches("this-is-a-random-piece-of-string-m-a-d-e-to-b-rea-k"));
-        Assertions.assertTrue(cs.matches("this_is_a_random_piece_of_string_m_a_d_e_to_b_rea_k"));
-        Assertions.assertTrue(cs.matches("this is a random piece of string m a d e to b rea k"));
-        Assertions.assertTrue(cs.matches("thisIsARandomPieceOfStringMADEToBReaK"));
-        Assertions.assertTrue(cs.matches("ThisIsARandomPieceOfStringMADEToBReaK"));
+        Assertions.assertTrue(cs.isCaseRepresentation("this-is-a-random-piece-of-string-m-a-d-e-to-b-rea-k"));
+        Assertions.assertTrue(cs.isCaseRepresentation("this_is_a_random_piece_of_string_m_a_d_e_to_b_rea_k"));
+        Assertions.assertTrue(cs.isCaseRepresentation("this is a random piece of string m a d e to b rea k"));
+        Assertions.assertTrue(cs.isCaseRepresentation("thisIsARandomPieceOfStringMADEToBReaK"));
+        Assertions.assertTrue(cs.isCaseRepresentation("ThisIsARandomPieceOfStringMADEToBReaK"));
 
         cs = CaseString.parse(" Just a normal string");
-        Assertions.assertTrue(cs.matches("just-a-normal-string"));
-        Assertions.assertTrue(cs.matches("just_a_normal_string"));
-        Assertions.assertTrue(cs.matches("just a normal string"));
-        Assertions.assertTrue(cs.matches("justANormalString"));
-        Assertions.assertTrue(cs.matches("JustANormalString"));
+        Assertions.assertTrue(cs.isCaseRepresentation("just-a-normal-string"));
+        Assertions.assertTrue(cs.isCaseRepresentation("just_a_normal_string"));
+        Assertions.assertTrue(cs.isCaseRepresentation("just a normal string"));
+        Assertions.assertTrue(cs.isCaseRepresentation("justANormalString"));
+        Assertions.assertTrue(cs.isCaseRepresentation("JustANormalString"));
 
     }
 
     @org.junit.jupiter.api.Test
-    void getMatchingValues() {
+    void getCaseValues() {
         CaseString cs = CaseString.parse(" This is A random-pieceOf string   MADE----to___bReaK");
-        List<String> matchingValues = cs.getMatchingValues();
+        List<String> matchingValues = cs.getCaseValues();
         Assertions.assertTrue(matchingValues.size() == 5
                 && matchingValues.contains("this-is-a-random-piece-of-string-m-a-d-e-to-b-rea-k")
                 && matchingValues.contains("this_is_a_random_piece_of_string_m_a_d_e_to_b_rea_k")
@@ -42,13 +42,13 @@ class CaseStringTest {
     }
 
     @org.junit.jupiter.api.Test
-    void getValue() {
+    void getCaseValue() {
         CaseString cs = CaseString.parse(" This is A random-pieceOf string   MADE----to___bReaK");
-        Assertions.assertTrue("this-is-a-random-piece-of-string-m-a-d-e-to-b-rea-k".equals(cs.getValue(CaseString.CaseType.KEBAB)));
-        Assertions.assertTrue("this_is_a_random_piece_of_string_m_a_d_e_to_b_rea_k".equals(cs.getValue(CaseString.CaseType.SNAKE)));
-        Assertions.assertTrue("this is a random piece of string m a d e to b rea k".equals(cs.getValue(CaseString.CaseType.SPACED)));
-        Assertions.assertTrue("thisIsARandomPieceOfStringMADEToBReaK".equals(cs.getValue(CaseString.CaseType.CAMEL)));
-        Assertions.assertTrue("ThisIsARandomPieceOfStringMADEToBReaK".equals(cs.getValue(CaseString.CaseType.PASCAL)));
+        Assertions.assertTrue("this-is-a-random-piece-of-string-m-a-d-e-to-b-rea-k".equals(cs.getCaseValue(CaseString.CaseType.KEBAB)));
+        Assertions.assertTrue("this_is_a_random_piece_of_string_m_a_d_e_to_b_rea_k".equals(cs.getCaseValue(CaseString.CaseType.SNAKE)));
+        Assertions.assertTrue("this is a random piece of string m a d e to b rea k".equals(cs.getCaseValue(CaseString.CaseType.SPACED)));
+        Assertions.assertTrue("thisIsARandomPieceOfStringMADEToBReaK".equals(cs.getCaseValue(CaseString.CaseType.CAMEL)));
+        Assertions.assertTrue("ThisIsARandomPieceOfStringMADEToBReaK".equals(cs.getCaseValue(CaseString.CaseType.PASCAL)));
     }
 
     @org.junit.jupiter.api.Test

@@ -6,7 +6,7 @@
 
     <groupId>io.github.renatols-jf</groupId>
     <artifactId>case-string</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Simple utility for converting string cases</description>
     <url>https://github.com/renatols-jf/case-string</url>

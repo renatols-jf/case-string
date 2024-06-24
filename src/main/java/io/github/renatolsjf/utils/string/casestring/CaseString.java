@@ -49,15 +49,15 @@ public class CaseString {
      * @param s The String to be matched against the parsed String
      * @return A boolean indicating whether a match was found or not
      */
-    public boolean matches (String s) {
-        return this.getMatchingValues().contains(s);
+    public boolean isCaseRepresentation (String s) {
+        return this.getCaseValues().contains(s);
     }
 
     /**
      * Gets a list of Strings containing the parsed String variations for each available CaseType
      * @return A List of Strings with the variations for each available CaseType
      */
-    public List<String> getMatchingValues() {
+    public List<String> getCaseValues() {
         return this.buffers.stream()
                 .map(cs -> cs.toString())
                 .distinct()
@@ -69,7 +69,7 @@ public class CaseString {
      * @param type The desired CaseType
      * @return A String corresponding to the give CaseType
      */
-    public String getValue(CaseType type) {
+    public String getCaseValue(CaseType type) {
         return this.buffers.stream()
                 .filter(cs -> cs.isOfCaseType(type))
                 .map(cs -> cs.toString())
@@ -90,7 +90,7 @@ public class CaseString {
      * @return A String parsed by the CaseType.KEBAB
      */
     public String kebab() {
-        return this.getValue(CaseType.KEBAB);
+        return this.getCaseValue(CaseType.KEBAB);
     }
 
     /**
@@ -98,7 +98,7 @@ public class CaseString {
      * @return A String parsed by the CaseType.SNAKE
      */
     public String snake() {
-        return this.getValue(CaseType.SNAKE);
+        return this.getCaseValue(CaseType.SNAKE);
     }
 
 
@@ -107,7 +107,7 @@ public class CaseString {
      * @return A String parsed by the CaseType.CAMEL
      */
     public String camel() {
-        return this.getValue(CaseType.CAMEL);
+        return this.getCaseValue(CaseType.CAMEL);
     }
 
     /**
@@ -115,7 +115,7 @@ public class CaseString {
      * @return A String parsed by the CaseType.PASCAL
      */
     public String pascal() {
-        return this.getValue(CaseType.PASCAL);
+        return this.getCaseValue(CaseType.PASCAL);
     }
 
     /**
@@ -123,7 +123,7 @@ public class CaseString {
      * @return A String parsed by the CaseType.SPACED
      */
     public String spaced() {
-        return this.getValue(CaseType.SPACED);
+        return this.getCaseValue(CaseType.SPACED);
     }
 
     /**
@@ -153,7 +153,7 @@ public class CaseString {
      */
     public boolean equalsIgnoreInput(CaseString other) {
         if (other == null) return false;
-        return this.getMatchingValues().containsAll(other.getMatchingValues());
+        return this.getCaseValues().containsAll(other.getCaseValues());
     }
 
     /**
@@ -171,8 +171,8 @@ public class CaseString {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CaseString that = (CaseString) o;
-        return Objects.equals(input, that.input);
+        CaseString other = (CaseString) o;
+        return Objects.equals(input, other.input);
     }
 
     @Override
@@ -211,7 +211,7 @@ public class CaseString {
      */
     public static String getValue(CaseType caseType, String s) {
         CaseString cs = parse(s);
-        return cs.getValue(caseType);
+        return cs.getCaseValue(caseType);
     }
 
     /**
