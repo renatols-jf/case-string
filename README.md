@@ -20,7 +20,7 @@ may, I wanted to create a lightweight lib that I could reuse in my projects, per
 The main goal of this lib is **NOT** to convert from one case to another, although this is obviously possible. 
 The idea is to parse a given String, no matter the case, and make its case representations available. This means that
 an input String, hereby called parsed String, can be laid in any case available, even in a combination of cases, and it will
-still be parsed and create the available cases as it should. What does this mean exactly? It means that a String such as:
+still be parsed and it will create the available cases as it should. What does this mean exactly? It means that a String such as:
 
 ```
    This   is-a_--Random String thatWill--- _ -    BeParsed
