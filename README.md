@@ -40,7 +40,7 @@ After parsing a String, all cases will be available for comparisons, getting the
 
 # How to use it?
 
-To use this project, you need to update your pom.xml if using Maven
+**This is a Java 21 project.** To use this project, you need to update your pom.xml if using Maven
 ```
 <dependency>
     <groupId>io.github.renatols-jf</groupId>
