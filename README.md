@@ -14,7 +14,7 @@ to convert a String from or to as well.
 
 # Motivation
 Not much to say here. This is a common problem, which is already solved by a few - or maybe a lot - of other libs. Be that as it
-may, I wanted to create a lightweight lib that I could reuse in my projects, personal or otherwise, an that also displayed a slight different behavior.
+may, I wanted to create a lightweight lib that I could reuse in my projects, personal or otherwise, an that also displayed a slightly different behavior.
 
 # How does it work?
 The main goal of this lib is **NOT** to convert from one case to another, although this is obviously possible. 
